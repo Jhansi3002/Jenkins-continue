@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    image: jenkins-python-app
+    container_name: prod-python-app
+    ports:
+      - "8080:8080"
+    restart: always
