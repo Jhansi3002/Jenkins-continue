@@ -16,13 +16,13 @@ pipeline {
         }
 
         stage('Stop Old Container') {
-            steps {
-                sh '''
-                docker stop prod-python-app || true
-                docker rm prod-python-app || true
-                '''
-            }
-        }
+    steps {
+        sh '''
+          docker-compose down --remove-orphans || true
+        '''
+    }
+}
+
 
         stage('Deploy Application (CD)') {
             steps {
